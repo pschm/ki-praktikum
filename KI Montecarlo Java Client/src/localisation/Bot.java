@@ -1,14 +1,18 @@
 package localisation;
 
 public class Bot {
-	private int lefthouse;
-	private int Righthouse;
+	protected boolean lefthouse;
+	protected boolean righthouse;
 
-	public void GetSensor(){
+	public void getSensor(){
 		
 	}
 	
-	public void Drive(){
+	public void drive(){
+		
+	}
+	
+	public void turn() {
 		
 	}
 }

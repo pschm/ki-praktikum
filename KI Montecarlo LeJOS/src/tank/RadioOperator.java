@@ -44,7 +44,8 @@ public class RadioOperator {
 				anfrage = br.readLine(); 
 				antwort = "Antwort auf "+anfrage; 
 				if(anfrage.equals( "GetSensor" )) {
-					antwort = "Color-ID=" +  n.getGroundColor() + " Distance = "+ n.getDistance();
+					//antwort = "Color-ID=" +  n.getGroundColor() + " Distance = "+ n.getDistance();
+					antwort = ""+n.getDistance();
 
 				}
 				if(anfrage.equals("exit")) {
