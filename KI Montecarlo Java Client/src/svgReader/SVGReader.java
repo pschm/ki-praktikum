@@ -50,6 +50,7 @@ public class SVGReader {
             }
         } catch (IOException e) {
             System.out.println("IOException while trying to read SVG");
+            e.printStackTrace();
         }
 
         return svgMap;

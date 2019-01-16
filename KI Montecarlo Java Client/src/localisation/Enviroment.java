@@ -26,6 +26,10 @@ public class Enviroment {
 		}
 	}
 	
+	public ArrayList<VirtualBot> getParticles() {
+		return particles;
+	}
+	
 	public void localize() {
 		while(particles.size()>1) {
 			tank.getSensor();
