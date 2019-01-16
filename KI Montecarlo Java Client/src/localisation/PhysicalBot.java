@@ -25,7 +25,7 @@ public class PhysicalBot extends Bot {
 	public PhysicalBot (Enviroment e, String ipadress) {
 		this.e = e;
 		try {
-			meinEchoSocket = new Socket("10.0.1.9",1234);
+			meinEchoSocket = new Socket("192.168.43.38",1234);
 			socketoutstr = meinEchoSocket.getOutputStream(); 
 			osr = new OutputStreamWriter( socketoutstr ); 
 			bw = new BufferedWriter( osr );
@@ -69,8 +69,9 @@ public class PhysicalBot extends Bot {
 
 
 	@Override
-	public void drive(){
+	public boolean drive(){
 		ask("Drive");
+		return true;
 
 	}
 

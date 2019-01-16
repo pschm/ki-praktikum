@@ -18,19 +18,20 @@ public class VirtualBot extends Bot {
 	}
 
 	@Override
-	public void drive(){
+	public boolean drive(){
 		if (direction == LEFT) {
 			position -= 1;
 		}
-		if (direction == RIGHT) {
+		else if (direction == RIGHT) {
 			position +=1;
 		}
 		if (position<0 ) {
-			e.removeBot(this);
+			return false;
 		}
-		if(position >= e.getMaxlenght()){
-			e.removeBot(this);
+		else if(position >= e.getMaxlenght()){
+			return false;
 		}
+		return true;
 	}
 	@Override
 	public void turn() {

@@ -4,7 +4,6 @@ import svgReader.SVGReader;
 
 public class App {
 
-
 	public static void main(String[] args) {
 		
 		
