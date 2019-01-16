@@ -8,8 +8,8 @@ public class Bot {
 		
 	}
 	
-	public void drive(){
-		
+	public boolean drive(){
+		return true;
 	}
 	
 	public void turn() {

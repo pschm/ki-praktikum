@@ -9,9 +9,9 @@ import localisation.Enviroment;
 public class App {
 
 	public static void main(String[] args) {
-		Boolean[] oben = {true,true,false,true,false,false,true,false,true,false,false,true};
-		Boolean[] unten = {true,false,true,true,false,true,false,false,true,false,true,true};
-		Enviroment e = new Enviroment(oben, unten, "10.0.1.9");
+		boolean[] oben = {true,true,false,true,false,false,true,false,true,false,false,true};
+		boolean[] unten = {true,false,true,true,false,true,false,false,true,false,true,true};
+		Enviroment e = new Enviroment(oben, unten, "192.168.43.38");
 		e.localize();      
 
 
