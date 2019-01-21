@@ -2,7 +2,10 @@ package localisation;
 
 import java.util.ArrayList;
 
+import gui.GuiManager;
+
 public class Enviroment {
+	private GuiManager guiManager;
 	
 	public final static int DOWN = 0;
 	public final static int UP = 1;
@@ -30,16 +33,18 @@ public class Enviroment {
 		return particles;
 	}
 	
+	public void setGuiManager(GuiManager g) {
+		guiManager = g;
+	}
+	
 	public void localize() {
 		while(particles.size()>1) {
 			tank.getSensor();
 			//Kopie der Liste um Löschen zu ermöglichen
 			ArrayList<VirtualBot> newParticles = new ArrayList<VirtualBot>();
 			for(VirtualBot b : particles) {
-				System.out.println("Check");
 				b.getSensor();
 				if(!(tank.equals(b))) {
-					System.out.println("nicht gleich");
 				} else {
 					newParticles.add(b);
 				}
@@ -56,7 +61,8 @@ public class Enviroment {
 			for(VirtualBot b : particles) {
 				b.getSensor();
 			}
-			System.out.println("Vbots= "+ particles.size());
+			guiManager.updateBotAction("Verbleibende Bots: "+ particles.size());
+			guiManager.update(particles);
 			tank.drive();
 			
 		}

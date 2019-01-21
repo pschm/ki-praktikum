@@ -89,13 +89,13 @@ public class SVGReader {
      */
     private boolean[] buildUpperRow(ArrayList<Line> lines) {
         boolean[] upperRow = new boolean[12];
-        Arrays.fill(upperRow, false);
+        Arrays.fill(upperRow, true);
 
         for (int i = 0; i < upperRow.length; i++) {
             Line myLine = new Line(0, i * 50, 0, i * 50 + 50);
             for (Line l : lines) {
                 if (l.containsHorizontalLine(myLine)) {
-                    upperRow[i] = true;
+                    upperRow[i] = false;
                     break;
                 }
             }
@@ -112,12 +112,12 @@ public class SVGReader {
      */
     private boolean[] buildUnderRow(ArrayList<Line> lines) {
         boolean[] underRow = new boolean[12];
-        Arrays.fill(underRow, false);
+        Arrays.fill(underRow, true);
         for (int i = 0; i < underRow.length; i++) {
             Line myLine = new Line(150, i * 50, 150, i * 50 + 50);
             for (Line l : lines) {
                 if (l.containsHorizontalLine(myLine)) {
-                    underRow[i] = true;
+                    underRow[i] = false;
                     break;
                 }
             }

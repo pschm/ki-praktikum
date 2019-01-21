@@ -123,4 +123,8 @@ public class MapPanel extends JPanel {
 		}
 	}
 	
+	public void setVirtualBots(ArrayList<VirtualBot> vbs) {
+		bots = vbs;
+	}
+	
 }

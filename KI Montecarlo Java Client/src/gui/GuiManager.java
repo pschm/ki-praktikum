@@ -46,7 +46,7 @@ public class GuiManager {
 		mapFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mapFrame.setSize(1600, 500);
 		mapFrame.setLocation(0, 0);
-		mapFrame.setResizable(false);
+		mapFrame.setResizable(true);
 		mapFrame.setVisible(true);
 		mapFrame.setTitle("AGrün/BRot - Monte Carlo Localization");
 		mapFrame.setIconImage(groupIcon);
@@ -54,7 +54,7 @@ public class GuiManager {
 		controlFrame.setSize(320, 500);
 		controlFrame.setLocation(1600, 0);
 		controlFrame.setVisible(true);
-		controlFrame.setResizable(false);
+		controlFrame.setResizable(true);
 		controlFrame.setTitle("AGrün/BRot - Controlpanel");
 		controlFrame.setIconImage(groupIcon);
 		
@@ -101,7 +101,7 @@ public class GuiManager {
 	 * Update the botAction in the control-frame
 	 * @param botAction
 	 */
-	private void updateBotAction(String botAction) {
+	public void updateBotAction(String botAction) {
 		this.botAction.setText("  Botaction: " + botAction);
 	}
 	
@@ -114,10 +114,15 @@ public class GuiManager {
 		}
 	}
 	
-	public void update() {
+	public synchronized void update(ArrayList<VirtualBot> vbs) {
+		
+		map.setVirtualBots(vbs);
+		mapFrame.revalidate();
+		map.revalidate();
 		mapFrame.repaint();
 		map.repaint();
-		mapFrame.revalidate();
+		System.out.println("Wir haben geupdaatet");
+		
 	}
 	
 	private JPanel getFillerPanel() {
