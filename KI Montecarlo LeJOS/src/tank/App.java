@@ -9,8 +9,8 @@ public class App {
 		
 
 			Driver dennis = new Driver();
-			Navigator norbert = new Navigator();
 			Gunlayer gustav = new Gunlayer();
+			Navigator norbert = new Navigator(dennis,gustav);
 			RadioOperator ralf = new RadioOperator(dennis, norbert, gustav);
 			ralf.communicate();
 			

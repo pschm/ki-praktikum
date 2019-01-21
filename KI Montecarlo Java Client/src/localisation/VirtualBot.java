@@ -41,7 +41,7 @@ public class VirtualBot extends Bot {
 	
 
 	@Override
-	public void getSensor(){
+	public void updateSensor(){
 		if (direction == LEFT){
 			lefthouse = e.ishouse(position,Enviroment.DOWN);
 			righthouse = e.ishouse(position, Enviroment.UP);

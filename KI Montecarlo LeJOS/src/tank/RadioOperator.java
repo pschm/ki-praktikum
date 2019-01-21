@@ -68,6 +68,9 @@ public class RadioOperator {
 
 					d.turn(Integer.parseInt(anfrage.substring(4)));
 				}
+				if(anfrage.equals("Align")) {
+					n.align();
+				}
 				bw.write(antwort); 
 				bw.newLine(); 
 				bw.flush(); 

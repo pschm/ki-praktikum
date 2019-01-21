@@ -67,9 +67,14 @@ public class GuiManager {
 		btnStart.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ev) {
-				// TODO start bot
-				System.out.println("Bot started");
-				environment.localize();
+				new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						environment.localize();						
+					}
+				}).start(); 
+				
 			}
 		});
 		

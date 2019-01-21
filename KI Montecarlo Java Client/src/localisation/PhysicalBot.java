@@ -12,6 +12,8 @@ import java.net.UnknownHostException;
 
 
 public class PhysicalBot extends Bot {
+	final static String MAXDISTANCE ="2147483647";
+	
 	private Socket meinEchoSocket;
 	private OutputStream socketoutstr; 
 	private OutputStreamWriter osr;
@@ -38,6 +40,8 @@ public class PhysicalBot extends Bot {
 			bw.newLine(); 
 			bw.flush(); 
 			br.readLine(); 
+			
+			ask("Align");
 
 
 		} catch (UnknownHostException ex) {
@@ -76,24 +80,23 @@ public class PhysicalBot extends Bot {
 	}
 
 	@Override
-	public void getSensor(){
+	public void updateSensor(){
 		ask("Lookleft");
-		if(ask("GetSensor").equals("2147483647")) {
+		if(ask("GetSensor").equals(MAXDISTANCE)) {
 			lefthouse = false;
 		} else {
 			lefthouse = true;
 		}
 		ask("Lookright");
-		String s = ask("GetSensor");
-		System.out.println(s);
-		if(s.equals("2147483647")) {
+		if(ask("GetSensor").equals(MAXDISTANCE)) {
 			righthouse = false;
 		} else {
 			righthouse = true;
 		}
+		//wenn er am Ende ist dann alls umdrehen
 		if(lefthouse && righthouse) {
 			ask("Lookstraight");
-			if(!(ask("GetSensor").equals("2147483647"))) {
+			if(!(ask("GetSensor").equals(MAXDISTANCE))) {
 				turn();
 				e.turnAll(); 
 			}
@@ -108,7 +111,7 @@ public class PhysicalBot extends Bot {
 	}
 
 	public boolean equals(VirtualBot vb) {
-		System.out.println("Bot: Linkshaus: "+this.lefthouse+" Rechtshaus: "+this.righthouse +" VBot: Linkshaus: "+vb.lefthouse+" Rechtshaus: "+vb.righthouse);
+		//System.out.println("Bot: Linkshaus: "+this.lefthouse+" Rechtshaus: "+this.righthouse +" VBot: Linkshaus: "+vb.lefthouse+" Rechtshaus: "+vb.righthouse);
 		if(vb.lefthouse == this.lefthouse && vb.righthouse == this.righthouse) return true;
 		return false;
 

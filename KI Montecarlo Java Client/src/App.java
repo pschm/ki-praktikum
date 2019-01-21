@@ -10,22 +10,18 @@ public class App {
         boolean[] upperRow = svgReader.getUpperRow();
         boolean[] underRow = svgReader.getUnderRow();
         Enviroment e = new Enviroment(upperRow, underRow, "10.0.1.2");
-        new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				GuiManager gm = new GuiManager(upperRow, underRow, e, e.getParticles());
-				e.setGuiManager(gm);
-				gm.update(e.getParticles());
-				
-			}
-		}).start(); 
+        
+        GuiManager gm = new GuiManager(upperRow, underRow, e, e.getParticles());
+		e.setGuiManager(gm);
+		gm.update(e.getParticles());
+		
+        
         
 		if (upperRow == null || underRow == null) {
 			System.out.println("WARNING: Could not load svg");
 			return;
 		}
-        e.localize();
+        
 		
 				    
 	}

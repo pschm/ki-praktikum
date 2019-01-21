@@ -39,17 +39,14 @@ public class Enviroment {
 	
 	public void localize() {
 		while(particles.size()>1) {
-			tank.getSensor();
+			tank.updateSensor();
 			//Kopie der Liste um Löschen zu ermöglichen
 			ArrayList<VirtualBot> newParticles = new ArrayList<VirtualBot>();
 			for(VirtualBot b : particles) {
-				b.getSensor();
-				if(!(tank.equals(b))) {
-				} else {
+				b.updateSensor();
+				if((tank.equals(b))) {
 					newParticles.add(b);
-				}
-				
-				
+				} 
 			}
 			//
 			particles = newParticles;
@@ -59,7 +56,7 @@ public class Enviroment {
 			}
 			particles = newParticles;
 			for(VirtualBot b : particles) {
-				b.getSensor();
+				b.updateSensor();
 			}
 			guiManager.updateBotAction("Verbleibende Bots: "+ particles.size());
 			guiManager.update(particles);
