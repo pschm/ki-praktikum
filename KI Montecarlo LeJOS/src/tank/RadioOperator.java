@@ -47,34 +47,34 @@ public class RadioOperator {
 					//antwort = "Color-ID=" +  n.getGroundColor() + " Distance = "+ n.getDistance();
 					antwort = ""+n.getDistance();
 
-				}
+				} else 
 				if(anfrage.equals("exit")) {
 					exit=1;
-				}
+				} else 
 				if(anfrage.equals("Drive")) {
 					d.drive();
 
-				}
+				} else 
 				if(anfrage.equals("Lookleft")) {
 					g.lookleft();		    	  
-				}
+				} else 
 				if(anfrage.equals("Lookstraight")) {
 					g.lookstraight();
-				}
+				} else 
 				if(anfrage.equals("Lookright")) {
 					g.lookright();
-				}
+				} else 
 				if(anfrage.matches("Turn.*")) {
 
 					d.turn(Integer.parseInt(anfrage.substring(4)));
-				}
+				} else
 				if(anfrage.matches("Drive.*")) {
 
 					d.drive((Integer.parseInt(anfrage.substring(5))));
-				}
+				} else
 				if(anfrage.equals("Align")) {
 					n.align();
-				}
+				} else
 				bw.write(antwort); 
 				bw.newLine(); 
 				bw.flush(); 
