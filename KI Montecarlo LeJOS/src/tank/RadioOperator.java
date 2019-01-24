@@ -68,6 +68,10 @@ public class RadioOperator {
 
 					d.turn(Integer.parseInt(anfrage.substring(4)));
 				}
+				if(anfrage.matches("Drive.*")) {
+
+					d.drive((Integer.parseInt(anfrage.substring(5))));
+				}
 				if(anfrage.equals("Align")) {
 					n.align();
 				}
